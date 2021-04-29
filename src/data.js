@@ -57,3 +57,5 @@ const movieData = [
 ]
 
 export default movieData
+// this is all of our data that we want to display
+// this is array of objects

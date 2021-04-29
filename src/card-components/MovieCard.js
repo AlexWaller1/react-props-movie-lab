@@ -32,12 +32,30 @@ export default class MovieCard extends Component {
   render() {
     return (
       <div className="movie-card">
-        {/* which component should receive which props? */}
-        <CardFront />
-        <CardBack />
+        
+        <CardFront poster={posterMap[this.props.poster]} />
+        <CardBack
+               title={this.props.title}
+               IMDBRating={this.props.IMDBRating}
+               genres={this.props.genres}
+         />
       </div>
-    )
+    );
   }
 }
 
+MovieCard.defaultProps = {
+  title: 'Unknown',
+  IMDBRating: null,
+  genres: ['No Genre(s) Found'],
+  poster: 'default'
+};
 // Don't forget your default props!
+// receives information(props) from parent component MovieShowcase
+// Must pass props to two child components CardFront and CardBack
+// MovieCard acts as a sort of container.
+// Its primary purpose is to house the CardFront and CardBack components.
+// MovieCard can be used to make sure that the data being passed down to child components
+// is complete. For this, we can use default props.
+// Default props allow us to set a default value in the event that a prop is not provided.
+// Will ensure props passed down to child components will be consistent.
